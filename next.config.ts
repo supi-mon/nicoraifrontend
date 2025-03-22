@@ -110,7 +110,8 @@ const nextConfig: NextConfig = {
       hmrRefreshes: true,
     },
   },
-  output: buildWithDocker ? 'standalone' : undefined,
+  output: 'export',
+  distDir: 'out',
   outputFileTracingIncludes: buildWithDocker
     ? { '*': ['public/**/*', '.next/static/**/*'] }
     : undefined,
@@ -190,6 +191,10 @@ const nextConfig: NextConfig = {
   serverExternalPackages: isProd ? ['@electric-sql/pglite'] : undefined,
 
   transpilePackages: ['pdfjs-dist', 'mermaid'],
+
+  images: {
+    unoptimized: true,
+  },
 
   webpack(config) {
     config.experiments = {

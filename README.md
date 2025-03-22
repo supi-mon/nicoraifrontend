@@ -914,3 +914,13 @@ This project is [Apache 2.0](./LICENSE) licensed.
 [vercel-link]: https://chat-preview.lobehub.com
 [vercel-shield]: https://img.shields.io/badge/vercel-online-55b467?labelColor=black&logo=vercel&style=flat-square
 [vercel-shield-badge]: https://img.shields.io/badge/TRY%20LOBECHAT-ONLINE-55b467?labelColor=black&logo=vercel&style=for-the-badge
+
+## NicorAI Frontend
+
+[![AWS Deployment](https://github.com/supi-mon/nicoraifrontend/actions/workflows/aws-deploy.yml/badge.svg)](https://github.com/supi-mon/nicoraifrontend/actions/workflows/aws-deploy.yml)
+
+This is the frontend for NicorAI Intelligent Systems, based on Lobe Chat.
+
+### Deployment
+
+This project is deployed automatically to AWS via GitHub Actions CI/CD pipeline. See `.github/workflows/README.md` for details.
