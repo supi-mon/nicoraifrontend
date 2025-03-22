@@ -1,5 +1,5 @@
 import { ActionIcon } from '@lobehub/ui';
-import { Compass, FolderClosed, MessageSquare } from 'lucide-react';
+import { Compass, FolderClosed, LayoutDashboard, MessageSquare } from 'lucide-react';
 import Link from 'next/link';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -35,6 +35,15 @@ const TopActions = memo<TopActionProps>(({ tab, isPinned }) => {
           placement={'right'}
           size="large"
           title={t('tab.chat')}
+        />
+      </Link>
+      <Link aria-label="Dashboard" href={'/dashboard'}>
+        <ActionIcon
+          active={tab === SidebarTabKey.Dashboard}
+          icon={LayoutDashboard}
+          placement={'right'}
+          size="large"
+          title="Dashboard"
         />
       </Link>
       {enableKnowledgeBase && (

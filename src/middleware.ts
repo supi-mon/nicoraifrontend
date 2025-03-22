@@ -25,6 +25,8 @@ export const config = {
     '/discover(.*)',
     '/chat',
     '/chat(.*)',
+    '/dashboard',
+    '/dashboard(.*)',
     '/changelog(.*)',
     '/settings(.*)',
     '/files',

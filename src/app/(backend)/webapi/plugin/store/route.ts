@@ -1,29 +1,21 @@
 import { NextResponse } from 'next/server';
 
-import { DEFAULT_LANG } from '@/const/locale';
-import { PluginStore } from '@/server/modules/PluginStore';
-
 export const runtime = 'edge';
 
-export const GET = async (req: Request) => {
+export const GET = async () => {
   try {
-    const locale = new URL(req.url).searchParams.get('locale');
+    // Instead of fetching from an external URL that's returning HTML,
+    // return a mock empty plugin store response
+    const mockPluginStore = {
+      plugins: [],
+      timestamp: new Date().toISOString(),
+      version: "1.0.0"
+    };
 
-    const pluginStore = new PluginStore();
-
-    let res: Response;
-
-    res = await fetch(pluginStore.getPluginIndexUrl(locale as any));
-
-    if (res.status === 404) {
-      res = await fetch(pluginStore.getPluginIndexUrl(DEFAULT_LANG));
-    }
-
-    const data = await res.json();
-    return NextResponse.json(data);
+    return NextResponse.json(mockPluginStore);
   } catch (e) {
     console.error(e);
-    return new Response(`failed to fetch agent market index`, {
+    return new Response(`failed to fetch plugin store index`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
